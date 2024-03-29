@@ -16,7 +16,7 @@ GDNative is an interface between the Godot Engine and bindings to native languag
 ## How to clone the repo
 
 1. Install Godot version 3.5.3-stable using their official [website](https://godotengine.org/download/3.x/).
-2. Install Rust using the rustup tutorial privided in the official rust-lang [website](https://www.rust-lang.org/es)
+2. Install Rust using the rustup tutorial provided in the official rust-lang [website](https://www.rust-lang.org/es)
 3. Clone the repo in any directory
 ```sh
 git clone https://github.com/RamMaths/slime_2d_game.git \
