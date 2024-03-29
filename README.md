@@ -23,10 +23,11 @@ git clone https://github.com/RamMaths/slime_2d_game.git \
 && cd slime_2d_game
 ```
 4. Build the Rust scripts 
-
 ```sh
 # slime_2d_game/
 cd scripts \
 && cargo build
 ```
+Windows users might get an error while compiling the rust code if the [llvm compiler infrastructure](https://releases.llvm.org/download.html) is missing.
+
 5. Open the project in the Godot editor importing the `project.godot` file at the root of the repo.
