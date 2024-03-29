@@ -6,7 +6,7 @@ The series explain how to develop a game using GDScript the Godot Engine's scrip
 
 ## gdnative
 
-GDNative is an interface between the Godot Engine and bindings to native languages such as C/C++ or Rust. The crate I am using in order to use these bindings is [gdnative](https://godot-rust.github.io).
+GDNative is an interface between the Godot Engine and bindings to native languages such as C/C++ or Rust. The crate I am using in order to use these bindings is [gdnative](https://github.com/godot-rust/gdnative?tab=readme-ov-file).
 
 ## Versions
 
