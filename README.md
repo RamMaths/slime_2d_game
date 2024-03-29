@@ -1,12 +1,12 @@
 # SLIME 2D GAME
 
-This is a 2D platformer game developed with the Godot Engine following a series of tutorials in youtube; you can follow the playlist [here.](https://youtube.com/playlist?list=PLNEAWvYbJJ9nNOpe6fun7m6L_M8xslYnT&si=DGfVeL4gqyU-rIEE)
+This is a 2D platformer game developed with the Godot Engine following a series of tutorials in youtube; you can follow the playlist [here](https://youtube.com/playlist?list=PLNEAWvYbJJ9nNOpe6fun7m6L_M8xslYnT&si=DGfVeL4gqyU-rIEE).
 
 The series explain how to develop a game using GDScript the Godot Engine's scripting language, what makes this repo different it's that I am implementing all the logic entierly in Rust.
 
 ## gdnative
 
-GDNative is an interface between the Godot Engine and bindings to native languages such as C/C++ or Rust. The crate I am using in order to use these bindings is [gdnative.](https://godot-rust.github.io).
+GDNative is an interface between the Godot Engine and bindings to native languages such as C/C++ or Rust. The crate I am using in order to use these bindings is [gdnative](https://godot-rust.github.io).
 
 ## Versions
 
