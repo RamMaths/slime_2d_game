@@ -1,15 +1,6 @@
 use gdnative::prelude::*;
 use gdnative::api::AnimationPlayer;
 
-#[derive(NativeClass)]
-#[inherit(KinematicBody2D)]
-pub struct Player {
-    sprite: Option<TRef<'static, Sprite>>,
-    animation: Option<TRef<'static, AnimationPlayer>>,
-    motion: Vector2,
-    friction: bool
-}
-
 const MOVE_SPEED:f32 = 25.0;
 const MAX_SPEED:f32 = 50.0;
 const JUMP_HEIGHT: f32 = -150.0;
@@ -24,6 +15,15 @@ impl ToGodotString for &str {
     fn to_godot_string(&self) -> GodotString {
         GodotString::from_str(*self)
     }
+}
+
+#[derive(NativeClass)]
+#[inherit(KinematicBody2D)]
+pub struct Player {
+    sprite: Option<TRef<'static, Sprite>>,
+    animation: Option<TRef<'static, AnimationPlayer>>,
+    motion: Vector2,
+    friction: bool
 }
 
 #[methods]
