@@ -89,7 +89,6 @@ impl Player {
 
         if _base.is_on_floor() {
             if Input::is_action_pressed(&input, "ui_accept".to_godot_string(), false) {
-                godot_dbg!("jump");
                 self.motion.y = JUMP_HEIGHT;
             }
 
@@ -103,6 +102,5 @@ impl Player {
         }
 
         self.motion = _base.move_and_slide(self.motion, UP, true, 4, 0.785398, true);
-        self.motion = _base.move_and_slide(self.motion, Vector2::new(0.0, -1.0), true, 4, 0.785398, true);
     }
 }
