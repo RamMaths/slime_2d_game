@@ -1,8 +1,8 @@
 # SLIME 2D GAME
 
-This is a 2D platformer game developed with the Godot Engine following a series of tutorials in youtube; you can follow the playlist [here](https://youtube.com/playlist?list=PLNEAWvYbJJ9nNOpe6fun7m6L_M8xslYnT&si=DGfVeL4gqyU-rIEE).
+This is a 2D platformer game being developed by me with the Godot Engine following some tutorials in youtube by LuisCanray; here's his [youtube channel](https://www.youtube.com/@LuisCanary). You can follow the playlist [here](https://youtube.com/playlist?list=PLNEAWvYbJJ9nNOpe6fun7m6L_M8xslYnT&si=DGfVeL4gqyU-rIEE).
 
-The series explain how to develop a game using GDScript the Godot Engine's scripting language, what makes this repo different it's that I am implementing all the logic entierly in Rust.
+The tutorials explain how to develop a game using GDScript the Godot Engine's scripting language, what makes this repo different it's that I am implementing all the logic entierly in Rust.
 
 ## gdnative
 
