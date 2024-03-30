@@ -3,7 +3,7 @@ use gdnative::api::AnimationPlayer;
 
 const MOVE_SPEED:f32 = 25.0;
 const MAX_SPEED:f32 = 50.0;
-const JUMP_HEIGHT: f32 = -150.0;
+const JUMP_HEIGHT: f32 = -300.0;
 const UP: Vector2 = Vector2::new(0.0, -1.0);
 const GRAVITY: f32 = 15.0;
 
@@ -22,8 +22,7 @@ impl ToGodotString for &str {
 pub struct Player {
     sprite: Option<TRef<'static, Sprite>>,
     animation: Option<TRef<'static, AnimationPlayer>>,
-    motion: Vector2,
-    friction: bool
+    motion: Vector2
 }
 
 #[methods]
@@ -32,8 +31,7 @@ impl Player {
         Player { 
             sprite: None,
             animation: None,
-            motion: Vector2::new(0.0, 0.0),
-            friction: true
+            motion: Vector2::new(0.0, 0.0)
         }
     }
 
@@ -57,8 +55,9 @@ impl Player {
     }
 
     #[method]
-    fn _physics_process(&mut self, #[base] _base: &KinematicBody2D, delta: f64) {
+    fn _physics_process(&mut self, #[base] _base: &KinematicBody2D, _delta: f64) {
         self.motion.y += GRAVITY;
+        let mut friction = false;
 
         let input = Input::godot_singleton();
 
@@ -83,7 +82,7 @@ impl Player {
         } else {
             if let Some(animation) = self.animation {
                 animation.play("Idle".to_godot_string(), -1.0, 1.0, false);
-                self.friction = true;
+                friction = true;
             }
         }
 
@@ -91,12 +90,11 @@ impl Player {
             if Input::is_action_pressed(&input, "ui_accept".to_godot_string(), false) {
                 self.motion.y = JUMP_HEIGHT;
             }
-
-            if self.friction {
+            if friction {
                 self.motion.x = gdnative::globalscope::lerp(self.motion.x..=0.0, 0.5);
             }
         } else {
-            if self.friction {
+            if friction {
                 self.motion.x = gdnative::globalscope::lerp(self.motion.x..=0.0, 0.01);
             }
         }

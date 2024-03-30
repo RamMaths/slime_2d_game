@@ -1,10 +1,11 @@
 use gdnative::prelude::*;
-pub mod player;
 
-use player::Player;
+mod ui;
+
+use ui::Ui;
 
 fn init(handle: InitHandle) {
-    handle.add_class::<Player>();
+    handle.add_class::<Ui>();
 }
 
 godot_init!(init);

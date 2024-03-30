@@ -1,10 +1,11 @@
 use gdnative::prelude::*;
-pub mod player;
 
-use player::Player;
+mod coin;
+
+use coin::Coin;
 
 fn init(handle: InitHandle) {
-    handle.add_class::<Player>();
+    handle.add_class::<Coin>();
 }
 
 godot_init!(init);
