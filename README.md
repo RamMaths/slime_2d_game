@@ -33,3 +33,69 @@ cd scripts \
 Windows users might get an error while compiling the rust code if the [llvm compiler infrastructure](https://releases.llvm.org/download.html) is missing.
 
 5. Open the project in the Godot editor importing the `project.godot` file at the root of the repo.
+
+## Project structure
+
+```bash
+
+└── slime_2d_game
+    ├── assets
+    ├── godot_scripts
+    ├── project.godot
+    ├── scenes
+    └── scripts
+```
+
+- `assests`: As the folder's name says here's where all the asstes go.
+- `godot_scripts`: This is where all the GDNative scripts are stored, remember, the rust code compiles to a library that acts as an interface, therefore these GDNative scripts hold the information related to the binaries that rust produces.
+- `scenes`: As the folder's name says here's where all the scenes go.
+- `scripts`: This is our rust project which holds the following structure
+
+```bash
+└── scripts
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── src
+    │   ├── classes
+    │   │   ├── coin.rs
+    │   │   ├── dead_zone.rs
+    │   │   ├── menu.rs
+    │   │   ├── mod.rs
+    │   │   ├── player.rs
+    │   │   └── ui.rs
+    │   ├── examples
+    │   │   └── signal.rs
+    │   └── lib.rs
+    └── target
+```
+It's important to set a correct `Cargo.toml` file in order to compile as expected for the Godot Engine, for further information check out the [gdnative book](https://godot-rust.github.io/gdnative-book/intro/hello-world.html#creating-the-project).
+
+Every module inside the `src/classes` folder is used in the lib.rs to expose the created structs as Godot Native Classes.
+
+```rs
+// lib.rs
+use gdnative::prelude::*;
+mod classes;
+
+use classes::{
+    player::Player,
+    coin::Coin,
+    ui::Ui,
+    dead_zone::DeadZone,
+    menu::Menu
+};
+
+
+fn init(handle: InitHandle) {
+    handle.add_class::<Player>();
+    handle.add_class::<Coin>();
+    handle.add_class::<Ui>();
+    handle.add_class::<DeadZone>();
+    handle.add_class::<Menu>();
+}
+
+godot_init!(init);
+```
+
+The `src/examples` folder is not included in the tree project, it only acts as a reference to code that I have written and could be useful in the future.
+

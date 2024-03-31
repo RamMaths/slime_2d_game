@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://godot_scripts/Menu.gdns" type="Script" id=1]
+[ext_resource path="res://assets/Backgrounds/mountains_a.png" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/desert_b.png" type="Texture" id=3]
+[ext_resource path="res://assets/Backgrounds/trees.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.411765, 0.411765, 0.529412 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.411765, 0.411765, 0.529412 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -24.0
+margin_right = 125.0
+margin_bottom = 24.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 20.0
+custom_styles/focus = SubResource( 1 )
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 250.0
+margin_bottom = 44.0
+custom_styles/focus = SubResource( 2 )
+text = "Quit"
+
+[node name="MountainsA" type="Sprite" parent="."]
+position = Vector2( 549, 330 )
+scale = Vector2( 5.07031, 4.17969 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="DesertB" type="Sprite" parent="."]
+position = Vector2( 551, 236.75 )
+scale = Vector2( 4.35156, 3.73828 )
+z_index = -2
+texture = ExtResource( 3 )
+
+[node name="Trees" type="Sprite" parent="DesertB"]
+position = Vector2( 4.36624, 41.7973 )
+scale = Vector2( 1.18761, 1.09561 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
