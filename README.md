@@ -6,6 +6,13 @@ The tutorials explain how to develop a game using GDScript the Godot Engine's sc
 
 I am using the [RockyRoads](https://essssam.itch.io/rocky-roads) assets pack by [@AEssssam](https://twitter.com/AEssssam).
 
+## Index
+
+- [gdnative](#gdnative)
+- [Versions](#versions)
+- [How to clone the repo](#how-to-clone-the-repo)
+- [Project structure](#project-structure)
+
 ## gdnative
 
 GDNative is an interface between the Godot Engine and bindings to native languages such as C/C++ or Rust. The crate I am using in order to use these bindings is [gdnative](https://github.com/godot-rust/gdnative?tab=readme-ov-file).
@@ -70,7 +77,7 @@ Windows users might get an error while compiling the rust code if the [llvm comp
 ```
 It's important to set a correct `Cargo.toml` file in order to compile as expected for the Godot Engine, for further information check out the [gdnative book](https://godot-rust.github.io/gdnative-book/intro/hello-world.html#creating-the-project).
 
-Every module inside the `src/classes` folder is used in the lib.rs to expose the created structs as Godot Native Classes.
+Every module inside the `src/classes` folder is used in the `lib.rs` to expose the created structs as Godot Native Classes.
 
 ```rs
 // lib.rs
