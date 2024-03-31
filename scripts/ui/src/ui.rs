@@ -17,8 +17,6 @@ impl Ui {
 
     #[method]
     fn _ready(&mut self, #[base] _base: &CanvasLayer) {
-        godot_print!("Ui generated");
-
         if let Some(label) = _base.get_node("CoinsCollectedText") {
             if let Some(label) = unsafe { label.assume_safe() }.cast::<Label>() {
                 label.set_text("0");
