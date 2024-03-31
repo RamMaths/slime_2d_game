@@ -37,7 +37,7 @@ impl Ui {
         if self.coins == 3 {
             if let Some(tree) = _base.get_tree() {
                 let tree = unsafe { tree.assume_safe() };
-                match tree.change_scene("res://scenes/Mundo.tscn") {
+                match tree.change_scene("res://scenes/Mundo2.tscn") {
                     Ok(()) => {},
                     Err(err) => godot_error!("Failed to load the scene: {}", err.to_string())
                 }

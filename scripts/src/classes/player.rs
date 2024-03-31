@@ -105,8 +105,8 @@ impl Player {
 
     #[method]
     pub fn add_coin(&mut self, #[base] _base: &KinematicBody2D) {
-        if let Some(root) = _base.get_node("/root") {
-            if let Some(ui) = unsafe { root.assume_safe().get_node_as_instance::<Ui>("Mundo/CanvasLayer") } {
+        if let Some(root) = _base.get_parent() {
+            if let Some(ui) = unsafe { root.assume_safe().get_node_as_instance::<Ui>("CanvasLayer") } {
                 match ui.map_mut(|ui: &mut Ui, _base: TRef<CanvasLayer>| {
                     ui.handle_coin_collected(&_base);
                 }) {
