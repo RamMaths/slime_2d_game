@@ -70,7 +70,7 @@ Windows users might get an error while compiling the rust code if the [llvm comp
 ```
 It's important to set a correct `Cargo.toml` file in order to compile as expected for the Godot Engine, for further information check out the [gdnative book](https://godot-rust.github.io/gdnative-book/intro/hello-world.html#creating-the-project).
 
-Every module inside the `src/classes` folder is used in the lib.rs to expose the created structs as Godot Native Classes.
+Every module inside the `src/classes` folder is used in the `lib.rs` to expose the created structs as Godot Native Classes.
 
 ```rs
 // lib.rs
