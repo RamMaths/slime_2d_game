@@ -35,7 +35,7 @@ git clone https://github.com/RamMaths/slime_2d_game.git \
 ```sh
 # slime_2d_game/
 cd scripts \
-&& cargo build
+&& cargo build --release
 ```
 Windows users might get an error while compiling the rust code if the [llvm compiler infrastructure](https://releases.llvm.org/download.html) is missing.
 
