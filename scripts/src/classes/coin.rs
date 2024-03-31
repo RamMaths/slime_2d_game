@@ -18,20 +18,15 @@ impl Coin {
 
         if let Some(body) = body {
             let body = unsafe { body.assume_safe() };
-            if body.get_path().to_string().eq("/root/Mundo/Player") {
+            if let Some(body) = body.cast_instance::<Player>() {
                 _base.queue_free();
 
-                if let Some(body) = body.cast_instance::<Player>() {
-                    match body.map_mut(|player: &mut Player, _base: TRef<KinematicBody2D>| {
-                        player.add_coin(&_base);
-                    }) {
-                        Ok(()) => {},
-                        Err(err) => godot_error!("Couldn't add coin: {}", err.to_string())
-                    }
-                } else {
-                    godot_error!("Couldn't cast into Player");
-                };
-
+                match body.map_mut(|player: &mut Player, _base: TRef<KinematicBody2D>| {
+                    player.add_coin(&_base);
+                }) {
+                    Ok(()) => {},
+                    Err(err) => godot_error!("Couldn't add coin: {}", err.to_string())
+                }
             }
         }
     }
