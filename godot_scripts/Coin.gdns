@@ -13,6 +13,6 @@ dependency/X11.32 = [  ]
 dependency/X11.64 = [  ]
 
 [resource]
-resource_name = "Player"
-class_name = "Player"
+resource_name = "Coin"
+class_name = "Coin"
 library = SubResource( 1 )
