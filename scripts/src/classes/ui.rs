@@ -22,33 +22,25 @@ impl Ui {
                 label.set_text("0");
             }
         }
-
-        if let Some(root) = _base.get_node("/root") {
-            if let Some(coin) = unsafe { root.assume_safe().find_node("Coin2D", true, false) } {
-                let coin = unsafe { coin.assume_safe() };
-
-                match coin.connect(
-                    "coin_collected",
-                    unsafe { _base.assume_shared() },
-                    "_handle_coin_collected",
-                    VariantArray::new_shared(),
-                    0
-                ) {
-                    Ok(()) => godot_print!("method connected!"),
-                    Err(err) => godot_print!("Failed to connect emitter {}", err.to_string())
-                }
-            }
-        }
     }
 
     #[method]
-    fn _handle_coin_collected(&mut self, #[base] _base: &CanvasLayer) {
-        godot_print!("Coin collected");
+    pub fn handle_coin_collected(&mut self, #[base] _base: &CanvasLayer) {
         self.coins += 1;
 
         if let Some(label) = _base.get_node("CoinsCollectedText") {
             if let Some(label) = unsafe { label.assume_safe() }.cast::<Label>() {
                 label.set_text(format!("{}", self.coins));
+            }
+        }
+
+        if self.coins == 3 {
+            if let Some(tree) = _base.get_tree() {
+                let tree = unsafe { tree.assume_safe() };
+                match tree.change_scene("res://scenes/Mundo.tscn") {
+                    Ok(()) => {},
+                    Err(err) => godot_error!("Failed to load the scene: {}", err.to_string())
+                }
             }
         }
     }

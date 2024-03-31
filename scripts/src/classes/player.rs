@@ -1,5 +1,6 @@
 use gdnative::prelude::*;
 use gdnative::api::AnimationPlayer;
+use super::ui::Ui;
 
 const MOVE_SPEED:f32 = 25.0;
 const MAX_SPEED:f32 = 50.0;
@@ -100,5 +101,19 @@ impl Player {
         }
 
         self.motion = _base.move_and_slide(self.motion, UP, true, 4, 0.785398, true);
+    }
+
+    #[method]
+    pub fn add_coin(&mut self, #[base] _base: &KinematicBody2D) {
+        if let Some(root) = _base.get_node("/root") {
+            if let Some(ui) = unsafe { root.assume_safe().get_node_as_instance::<Ui>("Mundo/CanvasLayer") } {
+                match ui.map_mut(|ui: &mut Ui, _base: TRef<CanvasLayer>| {
+                    ui.handle_coin_collected(&_base);
+                }) {
+                    Ok(()) => {},
+                    Err(err) => godot_error!("Failed to load the ui from player: {}", err.to_string())
+                }
+            }
+        }
     }
 }

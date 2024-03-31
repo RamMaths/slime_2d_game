@@ -331,18 +331,18 @@ extents = Vector2( 194, 10 )
 [node name="Mundo" type="Node2D"]
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 8, -63 )
-scale = Vector2( 1.0625, 3.09375 )
+position = Vector2( 7, -121 )
+scale = Vector2( 1.0625, 7.17188 )
 texture = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 8, -36 )
+position = Vector2( 7, -20 )
 scale = Vector2( 1.0625, 1 )
 texture = ExtResource( 3 )
 
 [node name="Water" type="Sprite" parent="."]
-position = Vector2( 0.5, 46 )
-scale = Vector2( 1.00391, 1.9375 )
+position = Vector2( 5, 75 )
+scale = Vector2( 1.25, 3.125 )
 texture = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -357,14 +357,18 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -10, -5 )
+position = Vector2( -111, 25 )
 script = ExtResource( 7 )
 
 [node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 91, -11 )
+position = Vector2( 93, -12 )
 
 [node name="Coin2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -86, -5 )
+
+[node name="Coin3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 35, 3 )
+scale = Vector2( 1.0625, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
@@ -402,3 +406,5 @@ script = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 7, 122 )
 shape = SubResource( 11 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
