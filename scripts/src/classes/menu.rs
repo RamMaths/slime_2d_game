@@ -24,7 +24,7 @@ impl Menu {
     #[allow(nonstandard_style)]
     fn _on_StartButton_pressed(&mut self, #[base] _base: &Control) {
         if let Some(tree) = _base.get_tree() {
-            match unsafe { tree.assume_safe() }.change_scene("res://scenes/Mundo.tscn") {
+            match unsafe { tree.assume_safe() }.change_scene("res://scenes/Mundos/Mundo1.tscn") {
                 Ok(()) => {},
                 Err(err) => godot_error!("Couldn't load the scene: {}", err.to_string())
             }

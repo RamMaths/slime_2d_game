@@ -116,4 +116,20 @@ impl Player {
             }
         }
     }
+
+    #[method]
+    #[allow(nonstandard_style)]
+    pub fn _on_Spikes_body_entered(&mut self, #[base] _base: &KinematicBody2D, body: Option<Ref<KinematicBody2D>>) {
+        if let Some(body) = body {
+            if unsafe { body.assume_safe() }.name().to_string() == "Player" {
+                if let Some(tree) = _base.get_tree() {
+                    let tree = unsafe { tree.assume_safe() };
+                    match tree.reload_current_scene() {
+                        Ok(()) => {},
+                        Err(err) => godot_error!("Couldn't reload the scene: {}", err.to_string())
+                    }
+                }
+            }
+        }
+    }
 }
