@@ -132,4 +132,16 @@ impl Player {
             }
         }
     }
+
+    #[method]
+    pub fn _lose_life(&self, #[base] _base: &KinematicBody2D) {
+        godot_print!("Perdemos");
+        if let Some(tree) = _base.get_tree() {
+            let tree = unsafe { tree.assume_safe() };
+            match tree.reload_current_scene() {
+                Ok(()) => {},
+                Err(err) => godot_error!("Couldn't reload the scene: {}", err.to_string())
+            }
+        }
+    }
 }
