@@ -453,47 +453,51 @@ points = PoolVector2Array( 10.9375, 9.8125, 11.875, 9.9375, 14.0625, 13.9375, 8.
 [node name="Mundo1" type="Node2D"]
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 7, -121 )
+position = Vector2( -202, -263 )
 scale = Vector2( 1.0625, 7.17188 )
 texture = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 7, -20 )
+position = Vector2( -202, -162 )
 scale = Vector2( 1.0625, 1 )
 texture = ExtResource( 2 )
 
 [node name="Water" type="Sprite" parent="."]
-position = Vector2( 5, 75 )
+position = Vector2( -204, -67 )
 scale = Vector2( 1.25, 3.125 )
 texture = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -209, -142 )
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -262149, 6, 0, -327680, 4, 0, -327674, 15, 0, -196615, 4, 0, -196611, 5, 0, 5, 2, 0, 6, 3, 0, 7, 0, 0, 8, 3, 0, 9, 1, 0, 131068, 2, 0, 131069, 0, 0, 131070, 3, 0, 131071, 3, 0, 65536, 1, 0, 65540, 2, 0, 65541, 14, 0, 65542, 7, 0, 65543, 7, 0, 65544, 8, 0, 65545, 10, 0, 196598, 2, 0, 196599, 0, 0, 196600, 0, 0, 196601, 1, 0, 196604, 9, 0, 196605, 7, 0, 196606, 8, 0, 196607, 7, 0, 131072, 10, 0, 131075, 2, 0, 131076, 14, 0, 131077, 7, 0, 131078, 8, 0, 131079, 7, 0, 131080, 7, 0, 131081, 10, 0, 262134, 9, 0, 262135, 8, 0, 262136, 7, 0, 262137, 10, 0, 262140, 9, 0, 262141, 7, 0, 262142, 7, 0, 262143, 8, 0, 196608, 10, 0, 196611, 9, 0, 196612, 7, 0, 196613, 7, 0, 196614, 7, 0, 196615, 7, 0, 196616, 7, 0, 196617, 10, 0, 327670, 9, 0, 327671, 7, 0, 327672, 7, 0, 327673, 10, 0, 327676, 11, 0, 327677, 13, 0, 327678, 13, 0, 327679, 13, 0, 262144, 12, 0, 262147, 9, 0, 262148, 8, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 10, 0, 393206, 11, 0, 393207, 13, 0, 393208, 13, 0, 393209, 12, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 5, -6 )
-current = true
-zoom = Vector2( 0.25, 0.25 )
-
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( -111, 25 )
+position = Vector2( -320, -117 )
 script = ExtResource( 6 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 116, -31 )
+current = true
+zoom = Vector2( 0.25, 0.25 )
+smoothing_enabled = true
+
 [node name="Coin" parent="." instance=ExtResource( 10 )]
-position = Vector2( 93, -15 )
+position = Vector2( -116, -157 )
 
 [node name="Coin2" parent="." instance=ExtResource( 10 )]
-position = Vector2( -86, -5 )
+position = Vector2( -295, -147 )
 
 [node name="Coin3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 35, 3 )
+position = Vector2( -174, -139 )
 scale = Vector2( 1.0625, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
+offset = Vector2( 500, 325 )
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 500, 325 )
 script = ExtResource( 8 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
@@ -523,6 +527,7 @@ margin_bottom = -62.0
 text = "0"
 
 [node name="DeadZone" type="Area2D" parent="."]
+position = Vector2( -209, -142 )
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
@@ -530,6 +535,7 @@ position = Vector2( 7, 122 )
 shape = SubResource( 11 )
 
 [node name="Spikes" type="Area2D" parent="."]
+position = Vector2( -209, -142 )
 
 [node name="TileMap" type="TileMap" parent="Spikes"]
 tile_set = SubResource( 17 )

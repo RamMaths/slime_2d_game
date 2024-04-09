@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/Objects/coin_gold.png" type="Texture" id=1]
 [ext_resource path="res://assets/Backgrounds/trees.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://godot_scripts/DeadZone.gdns" type="Script" id=11]
+[ext_resource path="res://scenes/Saw.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -406,5 +407,8 @@ script = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
 position = Vector2( 7, 122 )
 shape = SubResource( 11 )
+
+[node name="Saw" parent="." instance=ExtResource( 12 )]
+position = Vector2( 53, 38 )
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_Area2D_body_entered"]

@@ -15,7 +15,6 @@ impl Coin {
     #[method] 
     #[allow(nonstandard_style)]
     fn _on_Coin2D_body_entered(&self, #[base] _base: &Area2D, body: Option<Ref<KinematicBody2D>>) {
-
         if let Some(body) = body {
             let body = unsafe { body.assume_safe() };
             if let Some(body) = body.cast_instance::<Player>() {
